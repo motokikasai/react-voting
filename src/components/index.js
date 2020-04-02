@@ -8,14 +8,27 @@ class Vote extends React.Component {
       down: 10,
       up: 10
     };
+
+    this.downVote = this.downVote.bind(this);
+    this.upVote = this.upVote.bind(this);
   }
 
   downVote() {
-    //   vote it down
+    this.setState((state, props) => {
+      console.log(props);
+
+      return {
+        down: state.down--
+      };
+    });
   }
 
   upVote() {
-    //   vote it up
+    this.setState((state, props) => {
+      return {
+        up: state.up++
+      };
+    });
   }
 
   render() {
@@ -24,10 +37,10 @@ class Vote extends React.Component {
         <h1>Vote buttons</h1>
         <section className="container">
           <div className="button-down">
-            <button onClick={this.downVote}>Downvote 10</button>
+            <button onClick={this.downVote}>Downvote {this.state.down}</button>
           </div>
           <div className="button-up">
-            <button onClick={this.upVote}>Upvote 10</button>
+            <button onClick={this.upVote}>Upvote {this.state.up}</button>
           </div>
         </section>
       </div>
