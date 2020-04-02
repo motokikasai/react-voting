@@ -1,0 +1,24 @@
+.main {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+  color: purple;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+button {
+  background-color: rgb(255, 211, 249);
+  border-style: none;
+  padding: 20px 40px;
+  margin: 10px;
+  border-radius: 5px;
+  border: 2px solid rgb(211, 165, 255);
+  color: purple;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
