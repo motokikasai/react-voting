@@ -5,7 +5,7 @@ import Vote from "./components/index";
 function App() {
   return (
     <div className="App">
-      <Vote />
+      <Vote up="Upvote" down="Downvote" />
     </div>
   );
 }

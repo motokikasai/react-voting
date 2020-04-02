@@ -15,16 +15,20 @@ class Vote extends React.Component {
 
   downVote() {
     this.setState((state, props) => {
-      console.log(props);
-
-      return {
-        down: state.down--
-      };
+      console.log(state);
+      if (state.down < 0) {
+        state.down = 0;
+      } else {
+        return {
+          down: state.down--
+        };
+      }
     });
   }
 
   upVote() {
     this.setState((state, props) => {
+      console.log(state);
       return {
         up: state.up++
       };
@@ -37,10 +41,14 @@ class Vote extends React.Component {
         <h1>Vote buttons</h1>
         <section className="container">
           <div className="button-down">
-            <button onClick={this.downVote}>Downvote {this.state.down}</button>
+            <button onClick={this.downVote}>
+              {this.props.down} {this.state.down}
+            </button>
           </div>
           <div className="button-up">
-            <button onClick={this.upVote}>Upvote {this.state.up}</button>
+            <button onClick={this.upVote}>
+              {this.props.up} {this.state.up}
+            </button>
           </div>
         </section>
       </div>
