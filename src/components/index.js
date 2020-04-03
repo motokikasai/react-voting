@@ -5,7 +5,8 @@ class VoteButton extends React.Component {
     super(props);
 
     this.state = {
-      counter: 10
+      counter: 10,
+      disabled: ""
     };
 
     this.text = this.props.voteType === "Upvote" ? "Upvote" : "Downvote";
@@ -13,30 +14,19 @@ class VoteButton extends React.Component {
   }
 
   handleClick() {
-    // this.setState((state, props) => {
-    //   console.log(state);
-    //   return props.voteType === "Upvote" ? state.counter++ : state.counter--;
-    // });
-
     this.setState((state, props) => {
       console.log(state);
-
-      let updatedCounter = state.counter;
-      if (props.voteType === "Upvote") {
-        updatedCounter++;
-      } else {
-        updatedCounter--;
-      }
-      return {
-        counter: updatedCounter
-      };
+      !state.counter ? (state.disabled = true) : (state.disabled = false);
+      return props.voteType === "Upvote"
+        ? { counter: state.counter++ }
+        : { counter: state.counter-- };
     });
   }
 
   render() {
     return (
       <div className="main">
-        <button onClick={this.handleClick}>
+        <button onClick={this.handleClick} disabled={this.state.disabled}>
           {this.text} {this.state.counter}
         </button>
       </div>
