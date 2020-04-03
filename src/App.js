@@ -1,11 +1,15 @@
 import React from "react";
 import "./App.css";
-import Vote from "./components/index";
+import VoteButton from "./components/index";
 
 function App() {
   return (
     <div className="App">
-      <Vote up="Upvote" down="Downvote" />
+      <h1>Vote buttons</h1>
+      <section className="container">
+        <VoteButton voteType="Downvote" />
+        <VoteButton voteType="Upvote" />
+      </section>
     </div>
   );
 }

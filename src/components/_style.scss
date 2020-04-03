@@ -1,8 +1,11 @@
-.main {
+.App {
   display: flex;
   justify-content: center;
   flex-direction: column;
   height: 100vh;
+}
+
+.main {
   color: purple;
 }
 
